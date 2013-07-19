@@ -11,7 +11,7 @@ Allows you to easily and quickly connect your Cart32 Shopping Cart to Wordpress.
 
 == Description ==
 
-This plug-in connects to your Cart32 account or allows you to create a new account if you do not have one.
+This plug-in will connect to your Cart32 account or allows you to create a new account if you do not have one.
 
 You can then easily add a products to your pages and posts.
 
