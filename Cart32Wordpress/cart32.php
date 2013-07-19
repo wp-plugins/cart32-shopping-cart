@@ -9,9 +9,7 @@
    License: GPL2
    */
 
-
-
-// code to use cart32template in a different way so WP approves it.  This keeps from 
+// code to use cart32template in a different way so WP approves it.  This keeps from
 // having to use use an include
 add_action( 'init', 'cart32_template_init_internal');
 function cart32_template_init_internal() {add_rewrite_rule( 'my-api.php$', 'index.php?cart32_template_api=1', 'top' );}

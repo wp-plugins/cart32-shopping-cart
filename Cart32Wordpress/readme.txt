@@ -17,8 +17,6 @@ You can then easily add a products to your pages and posts.
 
 The Cart32 shopping cart automatically keeps the same look and feel of your Wordpress site.
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
-
 == Installation ==
 
 This section describes how to install the plugin and get it working.
