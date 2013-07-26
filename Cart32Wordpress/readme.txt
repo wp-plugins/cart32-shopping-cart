@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: cart32_bryan
 Donate link: http://www.cart32.com/
-Tags: shopping cart, e-commerce, cart32, sell products, store
+Tags: shopping cart, e-commerce, cart32, ecommerce, interspire, bigcommerce, e-commerce, woocommerce, shop, cart, paypal, authorize, authorize.net, zencart, volusion, shopsite, oscommerce, zen cart, prestashop, merchant, big commerce
 Requires at least: 3.4
 Tested up to: 3.4
 License: GPLv2 or later
