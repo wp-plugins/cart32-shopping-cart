@@ -3,11 +3,13 @@
    Plugin Name: Cart32 Shopping Cart
    Plugin URI: http://wordpress.cart32.com
    Description: Add Cart32 to Wordpress
-   Version: 2.0
+   Version: 2.0.1
    Author: Cart32 Dev Team, Lead by Bryan Whitaker
    Author URI: http://www.cart32.com
    License: GPL2
    */
+
+
 
 // code to use cart32template in a different way so WP approves it.  This keeps from
 // having to use use an include
@@ -382,6 +384,7 @@ function handle_cart32_shortcode($ArrParams) {
      $s.='<input type=hidden name=item value="'.$ArrParams['item'].'">';
      $s.='<input type=hidden name=partno value="'.$ArrParams['partno'].'">';
      $s.='<input type=hidden name=price value="'.$ArrParams['price'].'">';
+     $s.='<input type=hidden name=taxcode value="'.$ArrParams['taxcode'].'">';
      if (array_key_exists('weight',$ArrParams)) $s.='<input type=hidden name=weight value="'.$ArrParams['weight'].'">';
      if (array_key_exists('options',$ArrParams)) {
         $s.='<table border=1 cellspacing=0 cellpadding=2 style="width:0;padding:1px;margin:1px;">';
@@ -479,6 +482,7 @@ function add_cart_button_to_post($context) {
   $context .= "  s+='partno=\"'+document.getElementById('Cart32PartNo').value+'\" ';";
   $context .= "  s+='price=\"'+document.getElementById('Cart32Price').value+'\" ';";
   $context .= "  if (document.getElementById('Cart32Weight').value!='') s+='weight=\"'+document.getElementById('Cart32Weight').value+'\" ';";
+  $context .= "  if (document.getElementById('Cart32TaxCode').value!='') s+='taxcode=\"'+document.getElementById('Cart32TaxCode').value+'\" ';";
   //options
   $context .= "   var blnHasOptions=false;";
   $context .= "   jQuery('#Cart32OptionsTable > tbody  > tr').each(function() {";
@@ -550,12 +554,13 @@ function add_inline_popup_content() {
    echo "<td style=\"border-bottom:1px solid #aaaaaa;\">&nbsp;</td></tr>";
    echo "<tr><td colspan=4 style=\"background-color:#eeeeee;border-left:1px solid #aaaaaa;border-bottom:1px solid #aaaaaa;border-right:1px solid #aaaaaa;\">";
    echo "<div id=\"AddToCartButtonTab\" style=\"\">";
-   echo "  <table border=0 cellspacing=0 cellpadding=3>";
+   echo "  <table border=0 cellspacing=0 cellpadding=2>";
    echo "  <tr><td>Item Name</td><td><input type=text size=30 name=Cart32Item id=Cart32Item></td></tr>";
    echo "  <tr><td>Part Number/SKU</td><td><input type=text name=Cart32PartNo id=Cart32PartNo></td></tr>";
    echo "  <tr><td>Price</td><td><input type=text size=10 name=Cart32Price id=Cart32Price></td></tr>";
    echo "  <tr><td>Button Text</td><td><input type=text name=AddToCartButtonText id=AddToCartButtonText value=\"Add To Shopping Cart\"></td></tr>";
    echo "  <tr><td>Weight</td><td><input type=text size=10 name=Cart32Weight id=Cart32Weight></td></tr>";
+   echo "  <tr><td>Tax Code</td><td><input type=text size=10 name=Cart32TaxCode id=Cart32TaxCode></td></tr>";
    echo "  <tr><td valign=top>Options<br><span style=\"font-size:7pt;\">(Size, Color, etc)</span></td><td valign=top><a href=\"javascript:AddCart32Option()\">Add An Option</a><br>";
    echo "  <table id=\"Cart32OptionsTable\" border=0 cellspacing=0 cellpadding=2><tbody></tbody></table></td></tr>";
 //   echo "  <tr><td></td><td>More ...</td></tr>";
