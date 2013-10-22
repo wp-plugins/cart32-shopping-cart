@@ -9,8 +9,6 @@
    License: GPL2
    */
 
-
-
 // code to use cart32template in a different way so WP approves it.  This keeps from
 // having to use use an include
 add_action( 'init', 'cart32_template_init_internal');
