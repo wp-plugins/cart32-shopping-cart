@@ -25,7 +25,7 @@ Allows you to easily and quickly connect your Cart32 Shopping Cart to Wordpress.
 
 == Changelog ==
 
-= 2.0.2 =
+= 2.0.3 =
 Minor bug fixes.
 
 = 2.0.1 =
