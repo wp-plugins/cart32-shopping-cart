@@ -1,13 +1,13 @@
 <?php
-   /*
-   Plugin Name: Cart32 Shopping Cart
-   Plugin URI: http://wordpress.cart32.com
-   Description: Add Cart32 to Wordpress
-   Version: 2.0.1
-   Author: Cart32 Dev Team, Lead by Bryan Whitaker
-   Author URI: http://www.cart32.com
-   License: GPL2
-   */
+/*
+Plugin Name: Cart32 Shopping Cart
+Plugin URI: http://wordpress.cart32.com
+Description: Add Cart32 to Wordpress
+Version: 2.0.2
+Author: Cart32 Dev Team, Lead by Bryan Whitaker
+Author URI: http://www.cart32.com
+License: GPL2
+*/
 
 // code to use cart32template in a different way so WP approves it.  This keeps from
 // having to use use an include
@@ -113,7 +113,7 @@ if (false) {
 }
 //TEMP SECTION END
 
-   echo "<img src=\"".plugin_dir_url('')."Cart32Wordpress/cart32_for_wordpress.png\" alt=\"Cart32 For Wordpress\">";
+   echo "<img src=\"".plugins_url('cart32_for_wordpress.png',__FILE__)."\" alt=\"Cart32 For Wordpress\">";
    echo "<H2>Cart32 Shopping Cart for WordPress</H2>";
 
    if (!$blnShowSetupWizard){
@@ -332,21 +332,21 @@ if (false) {
    echo "     }";
    echo "  }";
    echo "  function CreateCart32Trial(sCompanyName,sFirstLastName,sEmail,fReturn){";
-   echo "     sURL='".plugin_dir_url('')."Cart32Wordpress/cart32popup.php';";
+   echo "     sURL='".plugins_url('cart32popup.php',__FILE__)."';";
    echo "     sQS='wp=trial&company='+encodeURIComponent(sCompanyName)+'&firstlastname='+encodeURIComponent(sFirstLastName)+'&email='+encodeURIComponent(sEmail);";
    echo "     jQuery.ajax({type:'POST',data:sQS,url:sURL,success:function(data){fReturn(true,data);},error:function(XMLHttpRequest, textStatus, errorThrown){fReturn(false,'Error');}});";
    echo "  }";
    echo "  function CallCart32(sCart32URL,sC32WebURL,sClientCode,sClientPassword,fReturn){";
-   echo "     sURL='".plugin_dir_url('')."Cart32Wordpress/cart32popup.php';";
+   echo "     sURL='".plugins_url('cart32popup.php',__FILE__)."';";
    echo "     sQS='wp=y&carturl='+encodeURIComponent(sCart32URL)+'&c32weburl='+encodeURIComponent(sC32WebURL)+'&clientcode='+encodeURIComponent(sClientCode)+'&clientpassword='+encodeURIComponent(sClientPassword);";
    echo "     jQuery.ajax({type:'POST',data:sQS,url:sURL,success:function(data){fReturn(true,data);},error:function(XMLHttpRequest, textStatus, errorThrown){fReturn(false,'Error');}});";
    echo "  }";
    echo "  function CheckAccountInfo(sCart32URL,sClientCode,fReturn){";
-   echo "     sURL='".plugin_dir_url('')."Cart32Wordpress/cart32popup.php';";
+   echo "     sURL='".plugins_url('cart32popup.php',__FILE__)."';";
    echo "     sQS='wp=accountinfo&carturl='+encodeURIComponent(sCart32URL)+'&clientcode='+encodeURIComponent(sClientCode);";
    echo "     jQuery.ajax({type:'POST',data:sQS,url:sURL,success:function(data){fReturn(true,data);},error:function(XMLHttpRequest, textStatus, errorThrown){fReturn(false,'Error');}});";
    echo "  }";
-   echo "  function LaunchCart32WebAdmin(){x=window.open('', 'C32WebWindow', 'width=1000,height=750,resizable=yes,scrollbars=yes');document.C32WebForm.submit();}";
+   echo "  function LaunchCart32WebAdmin(){x=window.open('', 'C32WebWindow', 'width=1100,height=750,resizable=yes,scrollbars=yes');document.C32WebForm.submit();}";
    echo "  jQuery(function() {";
    echo "     for (i=1;i<=3;i++) jQuery('#WizardStep'+i).hide();";  //hide all steps of the wizard
    if ($blnShowSetupWizard) {

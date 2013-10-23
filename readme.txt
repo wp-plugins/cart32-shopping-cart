@@ -25,7 +25,10 @@ Allows you to easily and quickly connect your Cart32 Shopping Cart to Wordpress.
 
 == Changelog ==
 
-= 2.0.1 = 
+= 2.0.2 =
+Minor bug fixes.
+
+= 2.0.1 =
 Added support for taxcode field.
 
 = 2.0 =
