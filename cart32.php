@@ -3,7 +3,7 @@
 Plugin Name: Cart32 Shopping Cart
 Plugin URI: http://wordpress.cart32.com
 Description: Add Cart32 to Wordpress
-Version: 2.0.3
+Version: 2.0.4
 Author: Cart32 Dev Team, Lead by Bryan Whitaker
 Author URI: http://www.cart32.com
 License: GPL2
@@ -81,6 +81,7 @@ function cart32wordpress_settings() {
          $sC32WebURL=get_option("cart32wp_c32web_url");
          $sCart32WordPressAccessCode=get_option('cart32wp_access_code');
          $sAccountInfo=get_option("cart32wp_account_info");
+         $blnShowSetupWizard=false;
          if (get_option('cart32_wp_add_view_cart_to_menu')=='No') $blnAddViewCartToMenu=false;
          else $blnAddViewCartToMenu=true;
          $sViewCartText=get_option('cart32wp_view_cart_text');
