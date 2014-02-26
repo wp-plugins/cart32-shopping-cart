@@ -3,7 +3,7 @@
 Plugin Name: Cart32 Shopping Cart
 Plugin URI: http://wordpress.cart32.com
 Description: Add Cart32 to Wordpress
-Version: 2.0.4
+Version: 2.0.5
 Author: Cart32 Dev Team, Lead by Bryan Whitaker
 Author URI: http://www.cart32.com
 License: GPL2
@@ -272,7 +272,7 @@ if (false) {
    echo "              if(blnSuccess){";  //see if it's really succesful.  'Cart32' will be in it
    echo "                 if (sReturn.indexOf('Cart32')<0) blnSuccess=false;";
    echo "              }";
-   echo "              if(blnSuccess){jQuery('#WizardStep3aContent').html(sReturn);";
+   echo "              if(blnSuccess){";
    echo "                 var objHTML=document.createElement('div');";  //parse out the version from the HTML returned
    echo "                 objHTML.innerHTML=sReturn;";
    echo "                 ArrSpans=objHTML.getElementsByTagName('span');";  //put all spans in an array, then go through each one looking for id=MessageTableTitle.  That will have the version string
