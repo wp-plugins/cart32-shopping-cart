@@ -3,7 +3,11 @@
 Plugin Name: Cart32 Shopping Cart
 Plugin URI: http://wordpress.cart32.com
 Description: Add Cart32 to Wordpress
+<<<<<<< .mine
+Version: 2.0.6
+=======
 Version: 2.0.5
+>>>>>>> .r890397
 Author: Cart32 Dev Team, Lead by Bryan Whitaker
 Author URI: http://www.cart32.com
 License: GPL2
@@ -383,7 +387,11 @@ function handle_cart32_shortcode($ArrParams) {
      $s.='<input type=hidden name=item value="'.$ArrParams['item'].'">';
      $s.='<input type=hidden name=partno value="'.$ArrParams['partno'].'">';
      $s.='<input type=hidden name=price value="'.$ArrParams['price'].'">';
-     $s.='<input type=hidden name=taxcode value="'.$ArrParams['taxcode'].'">';
+
+
+     if (array_key_exists('taxcode',$ArrParams)){ $s.='<input type=hidden name=taxcode value="'.$ArrParams['taxcode'].'">';}
+
+
      if (array_key_exists('weight',$ArrParams)) $s.='<input type=hidden name=weight value="'.$ArrParams['weight'].'">';
      if (array_key_exists('options',$ArrParams)) {
         $s.='<table border=1 cellspacing=0 cellpadding=2 style="width:0;padding:1px;margin:1px;">';
@@ -392,12 +400,13 @@ function handle_cart32_shortcode($ArrParams) {
         for ($i=0;$i<count($ArrOptions);$i++){
            $iOption++;
            $ArrOption=explode("~",$ArrOptions[$i]);
-           $s.='<tr><td>'.$ArrOption[0].'</td>';
+           $s.='<tr id="'.$ArrParams['partno'].'OptionRow'.$i.'"><td id="'.$ArrParams['partno'].'OptionLabelCell'.$i.'">'.$ArrOption[0].':</td>';
            if ($ArrOption[1]=='Drop Down List') {
               $s.='<td><select name=p'.$iOption.'>';
               $ArrOptionChoices=explode(';',$ArrOption[2]);
-              for ($j=0;$j<count($ArrOptionChoices);$j++){
-                $s.='<option value=\"'.$ArrOptionChoices[$j].'\">'.$ArrOptionChoices[$j].'</option>';
+              foreach($ArrOptionChoices as $optionChoice){
+                $optionChoice=explode(':',$optionChoice);
+                $s.='<option value="'.$optionChoice[0].'">'.$optionChoice[0].'</option>';
               }
               $s.='</select><input type=hidden name=t'.$iOption.' value="d-'.$ArrOption[0].';'.$ArrOption[2].'"></td>';
            } else if ($ArrOption[1]=='Text Box') {
@@ -412,7 +421,6 @@ function handle_cart32_shortcode($ArrParams) {
    }
    return $s;
 }
-
 
 // Display The Options Page
 function cart32wordpress_settings_page () {
