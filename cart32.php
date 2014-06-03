@@ -3,11 +3,7 @@
 Plugin Name: Cart32 Shopping Cart
 Plugin URI: http://wordpress.cart32.com
 Description: Add Cart32 to Wordpress
-<<<<<<< .mine
-Version: 2.0.6
-=======
-Version: 2.0.5
->>>>>>> .r890397
+Version: 2.0.8
 Author: Cart32 Dev Team, Lead by Bryan Whitaker
 Author URI: http://www.cart32.com
 License: GPL2
@@ -123,10 +119,19 @@ if (false) {
 
    if (!$blnShowSetupWizard){
       echo "<div class=postbox>";
-      echo "<h3 style=\"padding:7px;\">Adding Products To Your Website</h3>";
+      echo "<h3 style=\"padding:7px;\">Add Products To Your Website One At A Time</h3>";
       echo "<div class=inside>";
       echo "All you need to do is click on the <a class=button href=\"javascript:alert('Press this button when adding a post or page to add a shopping cart button.');\">Insert Cart32 Shopping Cart Button</a> button when adding a post or page to add a product to your website.";
       echo "</div></div>";
+
+      if (false) {
+        echo "<div class=postbox>";
+        echo "<h3 style=\"padding:7px;\">Or Build Categories and Products</h3>";
+        echo "<div class=inside>";
+        echo "<a class='button thickbox' title='Set Up Categories' href='javascript:LaunchCart32WebAdminCategories();'>Set Up Categories</a>&nbsp;";
+        echo "<a class='button thickbox' title='Set Up Products' href='javascript:LaunchCart32WebAdminProducts();'>Set Up Products</a>&nbsp;";
+        echo "</div></div>";
+      }
 
       echo "<form method=\"post\" action=\"".$_SERVER["REQUEST_URI"]."\" style=\"margin-top:10px;\">";
       echo "<input type=hidden name=action value=save_view_cart_section>";
@@ -351,7 +356,9 @@ if (false) {
    echo "     sQS='wp=accountinfo&carturl='+encodeURIComponent(sCart32URL)+'&clientcode='+encodeURIComponent(sClientCode);";
    echo "     jQuery.ajax({type:'POST',data:sQS,url:sURL,success:function(data){fReturn(true,data);},error:function(XMLHttpRequest, textStatus, errorThrown){fReturn(false,'Error');}});";
    echo "  }";
-   echo "  function LaunchCart32WebAdmin(){x=window.open('', 'C32WebWindow', 'width=1100,height=750,resizable=yes,scrollbars=yes');document.C32WebForm.submit();}";
+   echo "  function LaunchCart32WebAdmin(){x=window.open('', 'C32WebWindow', 'width=1100,height=750,resizable=yes,scrollbars=yes');document.C32WebForm.tabname.value='Home';document.C32WebForm.submit();}";
+   echo "  function LaunchCart32WebAdminCategories(){x=window.open('', 'C32WebWindow', 'width=1100,height=750,resizable=yes,scrollbars=yes');document.C32WebForm.tabname.value='Store and Pages.Categories';document.C32WebForm.submit();}";
+   echo "  function LaunchCart32WebAdminProducts(){x=window.open('', 'C32WebWindow', 'width=1100,height=750,resizable=yes,scrollbars=yes');document.C32WebForm.tabname.value='Store and Pages.Products';document.C32WebForm.submit();}";
    echo "  jQuery(function() {";
    echo "     for (i=1;i<=3;i++) jQuery('#WizardStep'+i).hide();";  //hide all steps of the wizard
    if ($blnShowSetupWizard) {
@@ -390,6 +397,7 @@ function handle_cart32_shortcode($ArrParams) {
 
 
      if (array_key_exists('taxcode',$ArrParams)){ $s.='<input type=hidden name=taxcode value="'.$ArrParams['taxcode'].'">';}
+     if (array_key_exists('maxqty',$ArrParams)){ $s.='<input type=hidden name=maxqty value="'.$ArrParams['maxqty'].'">';}
 
 
      if (array_key_exists('weight',$ArrParams)) $s.='<input type=hidden name=weight value="'.$ArrParams['weight'].'">';
@@ -490,6 +498,7 @@ function add_cart_button_to_post($context) {
   $context .= "  s+='price=\"'+document.getElementById('Cart32Price').value+'\" ';";
   $context .= "  if (document.getElementById('Cart32Weight').value!='') s+='weight=\"'+document.getElementById('Cart32Weight').value+'\" ';";
   $context .= "  if (document.getElementById('Cart32TaxCode').value!='') s+='taxcode=\"'+document.getElementById('Cart32TaxCode').value+'\" ';";
+  $context .= "  if (document.getElementById('Cart32MaxQty').value!='') s+='maxqty=\"'+document.getElementById('Cart32MaxQty').value+'\" ';";
   //options
   $context .= "   var blnHasOptions=false;";
   $context .= "   jQuery('#Cart32OptionsTable > tbody  > tr').each(function() {";
@@ -570,6 +579,7 @@ function add_inline_popup_content() {
    echo "  <tr><td>Tax Code</td><td><input type=text size=10 name=Cart32TaxCode id=Cart32TaxCode></td></tr>";
    echo "  <tr><td valign=top>Options<br><span style=\"font-size:7pt;\">(Size, Color, etc)</span></td><td valign=top><a href=\"javascript:AddCart32Option()\">Add An Option</a><br>";
    echo "  <table id=\"Cart32OptionsTable\" border=0 cellspacing=0 cellpadding=2><tbody></tbody></table></td></tr>";
+   echo "  <tr><td>Max Qty</td><td><input type=text size=10 name=Cart32MaxQty id=Cart32MaxQty></td></tr>";
 //   echo "  <tr><td></td><td>More ...</td></tr>";
    echo "  <tr><td colspan=2><a class=button href=\"javascript:CreateCart32ShortCodeAddToCart()\">Insert into Post/Page</a> </td></tr>";
 //use this to give the option to add or edit what's already on the page/post

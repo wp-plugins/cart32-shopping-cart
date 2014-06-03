@@ -25,7 +25,9 @@ Allows you to easily and quickly connect your Cart32 Shopping Cart to Wordpress.
 
 == Changelog ==
 
-<<<<<<< .mine
+= 2.0.7 =
+Added field for Max Qty
+
 = 2.0.6 =
 Bug fixes.
 
@@ -35,14 +37,6 @@ A couple more bug fixes.
 = 2.0.4 =
 Minor bug fixes.
 
-=======
-= 2.0.5 =
-A couple more bug fixes.
-
-= 2.0.4 =
-Minor bug fixes.
-
->>>>>>> .r890397
 = 2.0.3 =
 Minor bug fixes.
 
