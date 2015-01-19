@@ -3,7 +3,7 @@ Contributors: cart32_bryan
 Donate link: http://www.cart32.com/
 Tags: shopping cart, e-commerce, cart32, ecommerce, interspire, bigcommerce, e-commerce, woocommerce, shop, cart, paypal, authorize, authorize.net, zencart, volusion, shopsite, oscommerce, zen cart, prestashop, merchant, big commerce
 Requires at least: 3.4
-Tested up to: 3.4
+Tested up to: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,9 @@ Allows you to easily and quickly connect your Cart32 Shopping Cart to Wordpress.
 3. Add products to your posts and pages.
 
 == Changelog ==
+
+= 2.0.10 =
+Testing for WP 4.1
 
 = 2.0.9 =
 Minor bug fixes.
